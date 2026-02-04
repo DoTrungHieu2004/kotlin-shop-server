@@ -5,8 +5,14 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const compression = require('compression');
 
+const { connectDB } = require('./config/db');
+const routes = require('./routes/index');
+
 const app = express();
 const PORT = process.env.PORT;
+
+// Conenct to DB
+connectDB();
 
 // Middleware
 app.use(helmet());
@@ -16,14 +22,8 @@ app.use(morgan('dev'));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Basic route
-app.get('/api/health', (req, res) => {
-  res.status(200).json({
-    status: 'OK',
-    timestamp: new Date().toISOString(),
-    service: 'Kotlin Shop API',
-  });
-});
+// Routes
+app.use('/api', routes);
 
 // 404 handler
 app.use((req, res) => {
