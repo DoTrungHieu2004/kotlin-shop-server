@@ -1,0 +1,13 @@
+node_modules/
+coverage/
+uploads/
+logs/
+*.log
+package-lock.json
+yarn.lock
+.DS_Store
+Thumbs.db
+.env
+.git
+.vscode
+.idea
