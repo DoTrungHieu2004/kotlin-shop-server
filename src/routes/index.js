@@ -3,6 +3,9 @@ const mongoose = require('mongoose');
 
 const router = express.Router();
 
+// API routes
+router.use('/auth', require('./auth.route'));
+
 // System health
 router.get('/health', (req, res) => {
   res.status(200).json({

@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema(
     phone: {
       type: String,
       validate: {
-        validator: function (w) {
+        validator: function (v) {
           // Accepts various formats: +1 (555) 123-4567, 555-123-4567, 5551234567
           return /^[\+]?[1-9][\d]{0,15}$/.test(v.replace(/[\s\(\)\-]/g, ''));
         },

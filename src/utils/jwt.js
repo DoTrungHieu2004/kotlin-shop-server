@@ -54,4 +54,4 @@ const authorize = (...roles) => {
   };
 };
 
-module.exports = { verifyToken, extractToken, authenticate, authorize };
+module.exports = { generateToken, verifyToken, authenticate, authorize };
